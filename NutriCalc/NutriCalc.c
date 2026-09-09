@@ -20,11 +20,11 @@ int main() {
 	if (mode == 1) {
 		double sum_of_protein = 0;
 		double sum_of_calories = 0;
-		puts("\nタンパク質を実数で入力してください。（最大15個まで、0で終了）");
+		puts("\nタンパク質を実数で入力してください。（最大15個まで、負の数で終了）");
 		for (int i = 0; i < 15; i++) {
 			printf("%dつ目：", i + 1);
 			scanf("%lf", &food[i].protein);
-			if (food[i].protein == 0) {
+			if (food[i].protein < 0) {
 				break;
 			}
 			food[i].calories = food[i].protein * 4;
@@ -37,11 +37,11 @@ int main() {
 	else if (mode == 2) {
 		double sum_of_fat = 0;
 		double sum_of_calories = 0;
-		puts("\n脂質を実数で入力してください。（最大15個まで、0で終了）");
+		puts("\n脂質を実数で入力してください。（最大15個まで、負の数で終了）");
 		for (int i = 0; i < 15; i++) {
 			printf("%dつ目：", i + 1);
 			scanf("%lf", &food[i].fat);
-			if (food[i].fat == 0) {
+			if (food[i].fat < 0) {
 				break;
 			}
 			food[i].calories = food[i].fat * 9;
@@ -54,11 +54,11 @@ int main() {
 	else if (mode == 3) {
 		double sum_of_carb = 0;
 		double sum_of_calories = 0;
-		puts("\n糖質を実数で入力してください。（最大15個まで、0で終了）");
+		puts("\n糖質を実数で入力してください。（最大15個まで、負の数で終了）");
 		for (int i = 0; i < 15; i++) {
 			printf("%dつ目：", i + 1);
 			scanf("%lf", &food[i].carb);
-			if (food[i].carb == 0) {
+			if (food[i].carb < 0) {
 				break;
 			}
 			food[i].calories = food[i].carb * 4;
@@ -74,14 +74,14 @@ int main() {
 		double sum_of_carb = 0;
 		double sum_of_calories = 0;
 
-		puts("\n値を実数で「タンパク質,脂質,糖質」のように入力してください。（最大15個まで、0,0,0で終了）");
+		puts("\n値を実数で「タンパク質,脂質,糖質」のように入力してください。（最大15個まで、どれかがマイナスで終了）");
 		puts("例：2.3,12,23.1");
 
 		for (int i = 0; i < 15; i++) {
 			printf("%dつ目：",i+1);
 			scanf("%lf,%lf,%lf", &food[i].protein, &food[i].fat, &food[i].carb);
 
-			if (food[i].protein == 0 && food[i].fat == 0 && food[i].carb == 0) {
+			if (food[i].protein < 0 || food[i].fat < 0 || food[i].carb < 0) {
 				break;
 			}
 
