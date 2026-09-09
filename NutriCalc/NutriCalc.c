@@ -17,5 +17,22 @@ int main() {
 	printf("計算する項目を選択してください>>>");
 	scanf("%d", &mode);
 
+	if (mode == 1) {
+		double sum_of_protein = 0;
+		double sum_of_calories = 0;
+		puts("\nタンパク質を実数で入力してください。（最大15個まで、0で終了）");
+		for (int i = 0; i < 15; i++) {
+			printf("%dつ目：", i + 1);
+			scanf("%lf", &food[i].protein);
+			if (food[i].protein == 0) {
+				break;
+			}
+			food[i].calories = food[i].protein * 4;
+			sum_of_protein += food[i].protein;
+			sum_of_calories += food[i].calories;
+		}
+		printf("\nタンパク質：%.1lfg\nカロリー：%.1lfkcal\n", sum_of_protein, sum_of_calories);
+	}
+
 	return 0;
 }
