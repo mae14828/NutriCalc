@@ -34,5 +34,22 @@ int main() {
 		printf("\nタンパク質：%.1lfg\nカロリー：%.1lfkcal\n", sum_of_protein, sum_of_calories);
 	}
 
+	else if (mode == 2) {
+		double sum_of_fat = 0;
+		double sum_of_calories = 0;
+		puts("\n脂質を実数で入力してください。（最大15個まで、0で終了）");
+		for (int i = 0; i < 15; i++) {
+			printf("%dつ目：", i + 1);
+			scanf("%lf", &food[i].protein);
+			if (food[i].protein == 0) {
+				break;
+			}
+			food[i].calories = food[i].protein * 9;
+			sum_of_fat += food[i].protein;
+			sum_of_calories += food[i].calories;
+		}
+		printf("\n脂質：%.1lfg\nカロリー：%.1lfkcal\n", sum_of_fat, sum_of_calories);
+	}
+
 	return 0;
 }
