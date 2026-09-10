@@ -94,5 +94,19 @@ int main() {
 		printf("\nタンパク質：%.1lfg\n脂質：%.1lfg\n糖質：%.1lfg\nカロリー：%.1lfkcal\n", sum_of_protein, sum_of_fat, sum_of_carb, sum_of_calories);
 	}
 
+	else if (mode == 5) {
+		double sum_of_salt = 0;
+		puts("\n食塩相当量を実数で入力してください。（最大15個まで、負の数で終了）");
+		for (int i = 0; i < 15; i++) {
+			printf("%dつ目：", i + 1);
+			scanf("%lf", &food[i].salt);
+			if (food[i].salt < 0) {
+				break;
+			}
+			sum_of_salt += food[i].salt;
+		}
+		printf("\n食塩相当量：%.1lfg\n", sum_of_salt);
+	}
+
 	return 0;
 }
