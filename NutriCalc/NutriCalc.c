@@ -122,5 +122,34 @@ int main() {
 		printf("\n食塩相当量：%.1lfkcal\n", sum_of_calories);
 	}
 
+	else if (mode == 7) {
+		double sum_of_protein = 0;
+		double sum_of_fat = 0;
+		double sum_of_carb = 0;
+		double sum_of_calories = 0;
+		double sum_of_salt = 0;
+
+		puts("\n値を実数で「タンパク質,脂質,糖質,食塩相当量」のように入力してください。（最大15個まで、どれかがマイナスで終了）");
+		puts("例：5,10,15.5,1.1");
+
+		for (int i = 0; i < 15; i++) {
+			printf("%dつ目：", i + 1);
+			scanf("%lf,%lf,%lf,%lf", &food[i].protein, &food[i].fat, &food[i].carb, &food[i].salt);
+
+			if (food[i].protein < 0 || food[i].fat < 0 || food[i].carb < 0 || food[i].salt < 0) {
+				break;
+			}
+
+			food[i].calories = food[i].protein * 4 + food[i].fat * 9 + food[i].carb * 4;
+			sum_of_protein += food[i].protein;
+			sum_of_fat += food[i].fat;
+			sum_of_carb += food[i].carb;
+			sum_of_salt += food[i].salt;
+			sum_of_calories += food[i].calories;
+		}
+		printf("\nタンパク質：%.1lfg\n脂質：%.1lfg\n糖質：%.1lfg\n食塩相当量：%.1lfg\nカロリー：%.1lfkcal\n",
+			sum_of_protein, sum_of_fat, sum_of_carb, sum_of_salt, sum_of_calories);
+		}
+
 	return 0;
 }
