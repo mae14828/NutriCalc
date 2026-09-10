@@ -91,7 +91,7 @@ int main() {
 			sum_of_carb += food[i].carb;
 			sum_of_calories += food[i].calories;
 		}
-		printf("\nタンパク質：%.1lf\n脂質：%.1lf\n糖質：%.1lfg\nカロリー：%.1lfkcal\n", sum_of_protein, sum_of_fat, sum_of_carb, sum_of_calories);
+		printf("\nタンパク質：%.1lfg\n脂質：%.1lfg\n糖質：%.1lfg\nカロリー：%.1lfkcal\n", sum_of_protein, sum_of_fat, sum_of_carb, sum_of_calories);
 	}
 
 	return 0;
