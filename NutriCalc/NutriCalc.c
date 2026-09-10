@@ -119,7 +119,7 @@ int main() {
 			}
 			sum_of_calories += food[i].calories;
 		}
-		printf("\n食塩相当量：%.1lfkcal\n", sum_of_calories);
+		printf("\nカロリー：%.1lfkcal\n", sum_of_calories);
 	}
 
 	else if (mode == 7) {
