@@ -108,5 +108,19 @@ int main() {
 		printf("\n食塩相当量：%.1lfg\n", sum_of_salt);
 	}
 
+	else if (mode == 6) {
+		double sum_of_calories = 0;
+		puts("\nカロリーを実数で入力してください。（最大15個まで、負の数で終了）");
+		for (int i = 0; i < 15; i++) {
+			printf("%dつ目：", i + 1);
+			scanf("%lf", &food[i].calories);
+			if (food[i].calories < 0) {
+				break;
+			}
+			sum_of_calories += food[i].calories;
+		}
+		printf("\n食塩相当量：%.1lfkcal\n", sum_of_calories);
+	}
+
 	return 0;
 }
