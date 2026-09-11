@@ -16,8 +16,8 @@ int main() {
 
 		Nutrition food[15] = { '\0' };
 		puts("指定された栄養成分を計算します。（0で終了）");
-		printf("1：タンパク質\t2：脂質\n3：糖質\t\t4：タンパク質と脂質と糖質\n5：食塩相当量\t6：カロリー\n7：すべて\n\n");
-		printf("計算する項目を選択してください>>>");
+		printf("1：タンパク質\t2：脂質\n3：糖質\t\t4：タンパク質と脂質と糖質\n5：食塩相当量\t6：カロリー\n7：すべて\n");
+		printf("計算する項目を選択>>>");
 		scanf("%d", &mode);
 
 		if (mode == 0) {
@@ -39,7 +39,7 @@ int main() {
 				sum_of_protein += food[i].protein;
 				sum_of_calories += food[i].calories;
 			}
-			printf("\nタンパク質：%.1lfg\nカロリー：%.1lfkcal\n", sum_of_protein, sum_of_calories);
+			printf("\nタンパク質：%.1lfg\nカロリー：%.1lfkcal\n\n", sum_of_protein, sum_of_calories);
 		}
 
 		else if (mode == 2) {
@@ -56,7 +56,7 @@ int main() {
 				sum_of_fat += food[i].fat;
 				sum_of_calories += food[i].calories;
 			}
-			printf("\n脂質：%.1lfg\nカロリー：%.1lfkcal\n", sum_of_fat, sum_of_calories);
+			printf("\n脂質：%.1lfg\nカロリー：%.1lfkcal\n\n", sum_of_fat, sum_of_calories);
 		}
 
 		else if (mode == 3) {
@@ -73,7 +73,7 @@ int main() {
 				sum_of_carb += food[i].carb;
 				sum_of_calories += food[i].calories;
 			}
-			printf("\n糖質：%.1lfg\nカロリー：%.1lfkcal\n", sum_of_carb, sum_of_calories);
+			printf("\n糖質：%.1lfg\nカロリー：%.1lfkcal\n\n", sum_of_carb, sum_of_calories);
 		}
 
 		else if (mode == 4) {
@@ -99,7 +99,7 @@ int main() {
 				sum_of_carb += food[i].carb;
 				sum_of_calories += food[i].calories;
 			}
-			printf("\nタンパク質：%.1lfg\n脂質：%.1lfg\n糖質：%.1lfg\nカロリー：%.1lfkcal\n", sum_of_protein, sum_of_fat, sum_of_carb, sum_of_calories);
+			printf("\nタンパク質：%.1lfg\n脂質：%.1lfg\n糖質：%.1lfg\nカロリー：%.1lfkcal\n\n", sum_of_protein, sum_of_fat, sum_of_carb, sum_of_calories);
 		}
 
 		else if (mode == 5) {
@@ -113,7 +113,7 @@ int main() {
 				}
 				sum_of_salt += food[i].salt;
 			}
-			printf("\n食塩相当量：%.1lfg\n", sum_of_salt);
+			printf("\n食塩相当量：%.1lfg\n\n", sum_of_salt);
 		}
 
 		else if (mode == 6) {
@@ -127,7 +127,7 @@ int main() {
 				}
 				sum_of_calories += food[i].calories;
 			}
-			printf("\nカロリー：%.1lfkcal\n", sum_of_calories);
+			printf("\nカロリー：%.1lfkcal\n\n", sum_of_calories);
 		}
 
 		else if (mode == 7) {
@@ -155,7 +155,7 @@ int main() {
 				sum_of_salt += food[i].salt;
 				sum_of_calories += food[i].calories;
 			}
-			printf("\nタンパク質：%.1lfg\n脂質：%.1lfg\n糖質：%.1lfg\n食塩相当量：%.1lfg\nカロリー：%.1lfkcal\n",
+			printf("\nタンパク質：%.1lfg\n脂質：%.1lfg\n糖質：%.1lfg\n食塩相当量：%.1lfg\nカロリー：%.1lfkcal\n\n",
 				sum_of_protein, sum_of_fat, sum_of_carb, sum_of_salt, sum_of_calories);
 		}
 	}
