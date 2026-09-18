@@ -23,7 +23,7 @@ int main() {
 
 	while (1) {
 
-		Nutrition food[15] = { '\0' };
+		Nutrition food[15] = { 0 };
 		mode = select_mode();
 
 		if (mode == 0) {
