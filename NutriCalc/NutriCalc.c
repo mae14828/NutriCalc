@@ -25,37 +25,31 @@ int main() {
 
 		mode = select_mode();
 
-		if (mode == 0) {
-			puts("\n終了します。");
-			break;
-		}
-
-		else if (mode == 1) {
+		switch (mode) {
+		case 0:
+			printf("\n終了します。\n");
+			return 0;
+		case 1:
 			calc_protein();
-		}
-
-		else if (mode == 2) {
+			break;
+		case 2:
 			calc_fat();
-		}
-
-		else if (mode == 3) {
+			break;
+		case 3:
 			calc_carb();
-		}
-
-		else if (mode == 4) {
+			break;
+		case 4:
 			calc_pfc();
-		}
-
-		else if (mode == 5) {
+			break;
+		case 5:
 			calc_salt();
-		}
-
-		else if (mode == 6) {
+			break;
+		case 6:
 			calc_calories();
-		}
-
-		else if (mode == 7) {
+			break;
+		case 7:
 			calc_all();
+			break;
 		}
 	}
 
