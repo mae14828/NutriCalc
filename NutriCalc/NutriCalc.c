@@ -54,6 +54,24 @@ void calc_fat(void) {
 	printf("\n脂質：%.1lfg\nカロリー：%.1lfkcal\n\n", sum_of_fat, sum_of_calories);
 }
 
+void calc_carb(void) {
+	Nutrition food[15] = { 0 };
+	double sum_of_carb = 0;
+			double sum_of_calories = 0;
+			puts("\n糖質を実数で入力してください。（最大15個まで、負の数で終了）");
+			for (int i = 0; i < 15; i++) {
+				printf("%dつ目：", i + 1);
+				scanf("%lf", &food[i].carb);
+				if (food[i].carb < 0) {
+					break;
+				}
+				food[i].calories = food[i].carb * 4;
+				sum_of_carb += food[i].carb;
+				sum_of_calories += food[i].calories;
+			}
+			printf("\n糖質：%.1lfg\nカロリー：%.1lfkcal\n\n", sum_of_carb, sum_of_calories);
+}
+
 int main() {
 	int mode;
 
@@ -76,20 +94,7 @@ int main() {
 		}
 
 		else if (mode == 3) {
-			double sum_of_carb = 0;
-			double sum_of_calories = 0;
-			puts("\n糖質を実数で入力してください。（最大15個まで、負の数で終了）");
-			for (int i = 0; i < 15; i++) {
-				printf("%dつ目：", i + 1);
-				scanf("%lf", &food[i].carb);
-				if (food[i].carb < 0) {
-					break;
-				}
-				food[i].calories = food[i].carb * 4;
-				sum_of_carb += food[i].carb;
-				sum_of_calories += food[i].calories;
-			}
-			printf("\n糖質：%.1lfg\nカロリー：%.1lfkcal\n\n", sum_of_carb, sum_of_calories);
+			calc_carb();
 		}
 
 		else if (mode == 4) {
