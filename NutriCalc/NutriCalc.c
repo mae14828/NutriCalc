@@ -9,6 +9,59 @@ typedef struct {
 	double calories;
 } Nutrition;
 
+int select_mode(void);
+void calc_protein(void);
+void calc_fat(void);
+void calc_carb(void);
+void calc_pfc(void);
+void calc_salt(void);
+void calc_calories(void);
+void calc_all(void);
+
+int main() {
+	int mode;
+
+	while (1) {
+
+		mode = select_mode();
+
+		if (mode == 0) {
+			puts("\n終了します。");
+			break;
+		}
+
+		else if (mode == 1) {
+			calc_protein();
+		}
+
+		else if (mode == 2) {
+			calc_fat();
+		}
+
+		else if (mode == 3) {
+			calc_carb();
+		}
+
+		else if (mode == 4) {
+			calc_pfc();
+		}
+
+		else if (mode == 5) {
+			calc_salt();
+		}
+
+		else if (mode == 6) {
+			calc_calories();
+		}
+
+		else if (mode == 7) {
+			calc_all();
+		}
+	}
+
+	return 0;
+}
+
 int select_mode(void) {
 	int mode;
 	puts("指定された栄養成分を計算します。（0で終了）");
@@ -57,19 +110,19 @@ void calc_fat(void) {
 void calc_carb(void) {
 	Nutrition food[15] = { 0 };
 	double sum_of_carb = 0;
-			double sum_of_calories = 0;
-			puts("\n糖質を実数で入力してください。（最大15個まで、負の数で終了）");
-			for (int i = 0; i < 15; i++) {
-				printf("%dつ目：", i + 1);
-				scanf("%lf", &food[i].carb);
-				if (food[i].carb < 0) {
-					break;
-				}
-				food[i].calories = food[i].carb * 4;
-				sum_of_carb += food[i].carb;
-				sum_of_calories += food[i].calories;
-			}
-			printf("\n糖質：%.1lfg\nカロリー：%.1lfkcal\n\n", sum_of_carb, sum_of_calories);
+	double sum_of_calories = 0;
+	puts("\n糖質を実数で入力してください。（最大15個まで、負の数で終了）");
+	for (int i = 0; i < 15; i++) {
+		printf("%dつ目：", i + 1);
+		scanf("%lf", &food[i].carb);
+		if (food[i].carb < 0) {
+			break;
+		}
+		food[i].calories = food[i].carb * 4;
+		sum_of_carb += food[i].carb;
+		sum_of_calories += food[i].calories;
+	}
+	printf("\n糖質：%.1lfg\nカロリー：%.1lfkcal\n\n", sum_of_carb, sum_of_calories);
 }
 
 void calc_pfc(void) {
@@ -157,48 +210,4 @@ void calc_all(void) {
 	}
 	printf("\nタンパク質：%.1lfg\n脂質：%.1lfg\n糖質：%.1lfg\n食塩相当量：%.1lfg\nカロリー：%.1lfkcal\n\n",
 		sum_of_protein, sum_of_fat, sum_of_carb, sum_of_salt, sum_of_calories);
-}
-
-int main() {
-	int mode;
-
-	while (1) {
-
-		mode = select_mode();
-
-		if (mode == 0) {
-			puts("\n終了します。");
-			break;
-		}
-
-		else if (mode == 1) {
-			calc_protein();
-		}
-
-		else if (mode == 2) {
-			calc_fat();
-		}
-
-		else if (mode == 3) {
-			calc_carb();
-		}
-
-		else if (mode == 4) {
-			calc_pfc();
-		}
-
-		else if (mode == 5) {
-			calc_salt();
-		}
-
-		else if (mode == 6) {
-			calc_calories();
-		}
-
-		else if (mode == 7) {
-			calc_all();
-		}
-	}
-
-	return 0;
 }
