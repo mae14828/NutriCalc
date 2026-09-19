@@ -50,9 +50,11 @@ int main() {
 		case 7:
 			calc_all();
 			break;
+		default:
+			printf("error\n\n");
+			break;
 		}
 	}
-
 	return 0;
 }
 
