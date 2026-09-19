@@ -99,6 +99,36 @@ void calc_pfc(void) {
 	printf("\nタンパク質：%.1lfg\n脂質：%.1lfg\n糖質：%.1lfg\nカロリー：%.1lfkcal\n\n", sum_of_protein, sum_of_fat, sum_of_carb, sum_of_calories);
 }
 
+void calc_salt(void) {
+	Nutrition food[15] = { 0 };
+	double sum_of_salt = 0;
+	puts("\n食塩相当量を実数で入力してください。（最大15個まで、負の数で終了）");
+	for (int i = 0; i < 15; i++) {
+		printf("%dつ目：", i + 1);
+		scanf("%lf", &food[i].salt);
+		if (food[i].salt < 0) {
+			break;
+		}
+		sum_of_salt += food[i].salt;
+	}
+	printf("\n食塩相当量：%.1lfg\n\n", sum_of_salt);
+}
+
+void calc_calories(void) {
+	Nutrition food[15] = { 0 };
+	double sum_of_calories = 0;
+	puts("\nカロリーを実数で入力してください。（最大15個まで、負の数で終了）");
+	for (int i = 0; i < 15; i++) {
+		printf("%dつ目：", i + 1);
+		scanf("%lf", &food[i].calories);
+		if (food[i].calories < 0) {
+			break;
+		}
+		sum_of_calories += food[i].calories;
+	}
+	printf("\nカロリー：%.1lfkcal\n\n", sum_of_calories);
+}
+
 int main() {
 	int mode;
 
@@ -129,31 +159,11 @@ int main() {
 		}
 
 		else if (mode == 5) {
-			double sum_of_salt = 0;
-			puts("\n食塩相当量を実数で入力してください。（最大15個まで、負の数で終了）");
-			for (int i = 0; i < 15; i++) {
-				printf("%dつ目：", i + 1);
-				scanf("%lf", &food[i].salt);
-				if (food[i].salt < 0) {
-					break;
-				}
-				sum_of_salt += food[i].salt;
-			}
-			printf("\n食塩相当量：%.1lfg\n\n", sum_of_salt);
+			calc_salt();
 		}
 
 		else if (mode == 6) {
-			double sum_of_calories = 0;
-			puts("\nカロリーを実数で入力してください。（最大15個まで、負の数で終了）");
-			for (int i = 0; i < 15; i++) {
-				printf("%dつ目：", i + 1);
-				scanf("%lf", &food[i].calories);
-				if (food[i].calories < 0) {
-					break;
-				}
-				sum_of_calories += food[i].calories;
-			}
-			printf("\nカロリー：%.1lfkcal\n\n", sum_of_calories);
+			calc_calories();
 		}
 
 		else if (mode == 7) {
